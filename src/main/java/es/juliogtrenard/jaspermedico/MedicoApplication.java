@@ -14,7 +14,7 @@ public class MedicoApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MedicoApplication.class.getResource("/es/juliogtrenard/jaspermedico/fxml/medico.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
+        Scene scene = new Scene(fxmlLoader.load(), 650, 500);
         stage.setTitle("FORMULARIO MÉDICO");
         stage.setScene(scene);
         stage.show();

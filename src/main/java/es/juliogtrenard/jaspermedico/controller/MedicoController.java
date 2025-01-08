@@ -1,5 +1,6 @@
 package es.juliogtrenard.jaspermedico.controller;
 
+import es.juliogtrenard.jaspermedico.MedicoApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -86,15 +87,11 @@ public class MedicoController {
         String errores=validarCampos();
 
         if(errores.isEmpty()) {
+            String informe = "Medico";
             try {
-                InputStream reportStream =getClass().getResourceAsStream("/report/Medico.jasper");
-                if (reportStream == null) {
-                    System.out.println("Archivo no encontrado");
-                }
-
-                JasperReport report = (JasperReport) JRLoader.loadObject(reportStream);
+                JasperReport report = (JasperReport) JRLoader.loadObject(MedicoApplication.class.getResource("report/" + informe + ".jasper"));
                 Map<String, Object> parameters = new HashMap<>();
-                parameters.put("IMAGE_PATH", getClass().getResource("/img/").toString());
+                parameters.put("IMAGE_PATH", MedicoApplication.class.getResource("img/").toString());
                 parameters.put("NumPaciente",txtNumPaciente.getText().trim());
                 parameters.put("NomPaciente", txtNombrePaciente.getText().trim());
                 parameters.put("DirPaciente", txtDireccionPaciente.getText().trim());

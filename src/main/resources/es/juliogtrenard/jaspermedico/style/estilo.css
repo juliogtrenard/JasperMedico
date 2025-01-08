@@ -12,3 +12,9 @@
 .button:pressed {
     -fx-background-color: #ff0000;
 }
+
+.text-field, .text-area {
+    -fx-background-radius: 10px;
+    -fx-border-width: 2px;
+    -fx-border-color: #ff1313;
+}
